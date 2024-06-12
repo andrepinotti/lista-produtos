@@ -26,23 +26,19 @@
             foreach($resultado as $produto):
                 $nome = $produto['nome'];
                 $preco = $produto['valor'];
-                $disponibilidade = $produto['disponibilidade'];
+                $disponibilidade = $produto['disponibilidade'] == "sim" ? "Disponível" : "Indisponível";
                 $descricao = $produto['descricao'];
-                if($disponibilidade=="Sim"){
-                    $disponibilidade = "Disponível";
-                } else {
-                    $disponibilidade = "Indisponível";
-                }
+                
         ?>
 
         <tr>
-            <td><?= $nome ?></td>
-            <td><?= $preco ?></td>
-            <td><?= $disponibilidade ?></td>
-            <td><?= $descricao ?></td>
+            <td><?= htmlspecialchars($nome)  ?></td>
+            <td><?= htmlspecialchars($preco)  ?></td>
+            <td><?= htmlspecialchars($disponibilidade)  ?></td>
+            <td><?= htmlspecialchars($descricao)  ?></td>
         </tr>
 
-        <?PHP endforeach;?>
+        <?php endforeach;?>
 
     </table>
     <a href="cadastro.php"><button class="btn btn-primary m-5">Cadastrar Novo Produto</button></a>

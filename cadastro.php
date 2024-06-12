@@ -21,7 +21,7 @@ session_start();
 
 
 <div class="container mt-2 d-flex justify-content-center">
-    <form action="listar.php" method="get" accept-charset="utf-8" >
+    <form action="envio.php" method="get" accept-charset="utf-8" >
         <div class="mb-3">
             <label for="">Nome: </label>
             <input class="form-control" type="text" name="nomeproduto" placeholder="Digite o nome do produto"><br>

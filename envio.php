@@ -6,13 +6,14 @@
     //A tarefa dessa página será mandar os dados do formulário para o banco de dados
 
     if(isset($_GET['enviar'])){
-        if(!empty($_GET['nomeproduto']) && !empty($_GET['produto']) && !empty($_GET['descricao']) ){
+        if(!empty($_GET['nomeproduto']) && !empty($_GET['produto']) && !empty($_GET['disponibilidade'] && !empty($_GET['descricao']))){
             $nome = mysqli_real_escape_string($conn, $_GET['nomeproduto']);
             $preco = mysqli_real_escape_string($conn, $_GET['produto']);
             $codigo = mysqli_real_escape_string($conn, $_GET['descricao']);
+            $disponibilidade = mysqli_real_escape_string($conn, $_GET['disponibilidade']);
 
             //Agora faremos a parte de envio de um comando ao banco de dados
-            $sql =  "INSERT INTO produtos(nome, valor, descricao) VALUES ('$nome', '$preco', '$codigo')";
+            $sql =  "INSERT INTO produtos(nome, valor, disponibilidade, descricao) VALUES ('$nome', '$preco', '$disponibilidade', '$codigo')";
             $enviar = mysqli_query($conn, $sql);
 
             if($enviar){
